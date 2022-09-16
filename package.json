@@ -1,20 +1,22 @@
 {
   "name": "plugin-outbound-button",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "postinstall": "flex-plugin pre-script-check"
   },
   "dependencies": {
+    "@twilio-paste/core": "^15.2.0",
+    "@twilio-paste/icons": "^9.1.0",
     "@twilio/flex-plugin-scripts": "5.2.0",
+    "prop-types": "^15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "prop-types": "^15.7.2",
-    "@twilio-paste/core": "^10.14.0",
-    "@twilio-paste/icons": "^5.7.0"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@twilio/flex-ui": "2.0.0-beta.1",
+    "@types/styled-components": "^5.1.26",
     "react-test-renderer": "17.0.2",
     "typescript": "^4"
   }
