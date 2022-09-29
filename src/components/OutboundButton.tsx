@@ -18,8 +18,20 @@ export const OutboundButton = ({ task }: any) => {
   const { attributes } = task;
   const outboundCallAttributes = {
     destination: attributes.callbackNumber || attributes.from,
-    taskAttributes: { type: 'outbound', channelType: 'voice' },
+    taskAttributes: {
+      ...JSON.parse(JSON.stringify(attributes)),
+      type: 'outbound',
+      channelType: 'voice',
+    },
   };
+
+  delete outboundCallAttributes.taskAttributes['flexChannelInviteSid'];
+  delete outboundCallAttributes.taskAttributes['flexInteractionSid'];
+  delete outboundCallAttributes.taskAttributes['flexInteractionChannelSid'];
+  delete outboundCallAttributes.taskAttributes['conversationSid'];
+  delete outboundCallAttributes.taskAttributes['conversations'];
+  delete outboundCallAttributes.taskAttributes['reasonsSelected'];
+  delete outboundCallAttributes.taskAttributes['reasonsUnselected'];
 
   return (
     <IconWrapper
