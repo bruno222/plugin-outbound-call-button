@@ -13,9 +13,9 @@ export default class OutboundButtonPlugin extends FlexPlugin {
   async init(flex: typeof Flex, manager: Flex.Manager): Promise<void> {
     flex.TaskCanvasHeader.Content.add(<OutboundButton key="outbound-call-button" />, {
       sortOrder: 1,
-      if: (props) =>
-        props.channelDefinition.capabilities.has('Chat') &&
-        props.task.taskStatus === 'assigned' &&
+      if: (props: any) =>
+        !props.channelDefinition.capabilities.has('Call') &&
+        ['wrapping', 'assigned'].includes(props.task.taskStatus) &&
         (props.task.attributes.callbackNumber || props.task.attributes.from),
     });
   }
